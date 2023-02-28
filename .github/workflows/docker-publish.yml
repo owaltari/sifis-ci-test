@@ -14,6 +14,7 @@ on:
 
 jobs:
   docker:
+    environment: ci
     runs-on: ubuntu-latest
     steps:
       -

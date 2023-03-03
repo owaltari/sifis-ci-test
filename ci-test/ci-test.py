@@ -10,7 +10,13 @@ def apicall_hello():
 
 @app.route("/commit-id")
 def apicall_commit_id():
-    return "Return commit ID\n"
+    with open("COMMIT_ID") as f:
+        return f.readline()
+
+@app.route("/targetplatform")
+def apicall_targetplatform():
+    with open("TARGETPLATFORM") as f:
+        return f.readline()
 
 
 app.run(host="0.0.0.0", port=5050)

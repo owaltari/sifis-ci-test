@@ -5,13 +5,6 @@ on:
     branches: [ "master" ]
     tags: [ 'v*.*.*' ]
 
-#env:
-#  # Use docker.io for Docker Hub if empty
-#  REGISTRY: docker.io
-#  # github.repository as <account>/<repo>
-#  IMAGE_NAME: ${{ github.repository }}
-
-
 jobs:
   docker:
     environment: ci
@@ -36,3 +29,5 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm
           push: true
           tags: owaltari/ci-test:latest
+          build-args: |
+            COMMIT_ID=${{ github.sha }}
